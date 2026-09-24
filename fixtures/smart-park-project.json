@@ -1,0 +1,79 @@
+{
+  "project": {
+    "id": "sample-smart-park-2026",
+    "name": "智慧园区数字化平台投标",
+    "client": "华东智慧园区建设中心",
+    "submissionDate": "2026-10-16",
+    "budgetLimit": 800000,
+    "quotedAmount": 860000,
+    "currency": "CNY",
+    "recommendation": "CONDITIONAL_GO",
+    "status": "evaluating",
+    "summary": "示例数据：存在报价超限、服务覆盖、截止时间和认证有效期四类可核验问题。"
+  },
+  "requirements": [
+    {
+      "title": "投标总价不高于 80 万元",
+      "kind": "mandatory",
+      "status": "unmet",
+      "evidence": "初版报价为 86 万元，超出最高限价 6 万元。",
+      "owner": "商务负责人",
+      "sourceRefs": [
+        { "path": "01-招标要求.md", "locator": "商务条款 3.2" },
+        { "path": "04-初版报价.csv", "locator": "总价行" }
+      ]
+    },
+    {
+      "title": "提供 7×24 小时运维支持",
+      "kind": "mandatory",
+      "status": "partial",
+      "evidence": "现有服务说明只承诺 5×8；合作伙伴能否补足尚待确认。",
+      "owner": "交付负责人",
+      "sourceRefs": [
+        { "path": "01-招标要求.md", "locator": "服务要求 2.4" },
+        { "path": "02-公司资质.md", "locator": "售后服务" }
+      ]
+    },
+    {
+      "title": "信息安全管理体系认证在有效期内",
+      "kind": "mandatory",
+      "status": "unmet",
+      "evidence": "资质清单中的认证已于 2026-08-31 过期。",
+      "owner": "资质专员",
+      "sourceRefs": [
+        { "path": "02-公司资质.md", "locator": "认证清单第 4 项" }
+      ]
+    }
+  ],
+  "risks": [
+    {
+      "title": "正式截标时间与内部纪要冲突",
+      "severity": "blocker",
+      "status": "open",
+      "mitigation": "以招标文件 18:00 为准，修正内部计划并提前两小时完成上传。",
+      "owner": "投标经理",
+      "sourceRefs": [
+        { "path": "01-招标要求.md", "locator": "第 1.6 节：18:00" },
+        { "path": "05-投标准备会纪要.md", "locator": "行动项：24:00" }
+      ]
+    }
+  ],
+  "tasks": [
+    { "title": "将报价调整至 79 万元并完成毛利复核", "owner": "商务负责人", "dueDate": "2026-10-14", "priority": "critical", "status": "todo", "sourceRefs": [{ "path": "04-初版报价.csv", "locator": "总价行" }] },
+    { "title": "确认合作伙伴 7×24 服务承诺及证明材料", "owner": "交付负责人", "dueDate": "2026-10-14", "priority": "critical", "status": "todo", "sourceRefs": [{ "path": "01-招标要求.md", "locator": "服务要求 2.4" }] },
+    { "title": "补充有效认证或取得招标方书面澄清", "owner": "资质专员", "dueDate": "2026-10-15", "priority": "critical", "status": "blocked", "sourceRefs": [{ "path": "02-公司资质.md", "locator": "认证清单第 4 项" }] }
+  ],
+  "decisions": [],
+  "analyses": [
+    {
+      "summary": "当前建议为有条件投标。报价、7×24 服务承诺、截标时间和过期认证均需在提交前解决，其中认证与截标时间属于阻断项。",
+      "recommendation": "CONDITIONAL_GO",
+      "sourceRefs": [
+        { "path": "01-招标要求.md" },
+        { "path": "02-公司资质.md" },
+        { "path": "04-初版报价.csv" },
+        { "path": "05-投标准备会纪要.md" }
+      ]
+    }
+  ]
+}

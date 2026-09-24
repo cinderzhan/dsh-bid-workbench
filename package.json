@@ -1,0 +1,57 @@
+{
+  "name": "dsh-bid-workbench",
+  "version": "0.1.0",
+  "description": "投标作战室：把招标要求、证据、风险、决策和 48 小时行动计划放进一个可追溯的 DSH 工作台。",
+  "type": "module",
+  "main": "./dsh/index.mjs",
+  "exports": {
+    ".": "./dsh/index.mjs",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "dsh",
+    "lib",
+    "src",
+    "fixtures",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "cinderzhan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cinderzhan/dsh-bid-workbench.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check dsh/index.mjs && node --check lib/client.js && node --check src/model.mjs && node --check src/store.mjs && node --check src/api.mjs && node --check src/plugin.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "pnpm check && pnpm test"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.1 <5.0.0-0",
+    "@deepseek-ai/dsh-agent": ">=0.1.5-rc.2 <0.2.0-0",
+    "@deepseek-ai/dsh-client-connection": ">=0.1.5-rc.2 <0.2.0-0",
+    "@deepseek-ai/dsh-tools": ">=0.1.5-rc.2 <0.2.0-0",
+    "@deepseek-ai/schemastery": ">=3.18.2 <4.0.0-0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "dsh-desktop-workbenches",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-workspace-controller",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  }
+}
